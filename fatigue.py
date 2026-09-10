@@ -1,5 +1,5 @@
-def find_total_strenuousness(start_times, end_times, strenuousness_per_hour):
-    real_strenuousness = []
+def find_total_stren(start_times, end_times, stren_per_hour):
+    real_stren = []
     times = []
 
     for i in range(len(start_times)):
@@ -7,18 +7,18 @@ def find_total_strenuousness(start_times, end_times, strenuousness_per_hour):
         minutes = int(end_times[i].split(':')[1]) - int(start_times[i].split(':')[1])
         total_time = hours + (minutes/60)
 
-        strenuousness = total_time * int(strenuousness_per_hour[i])
+        stren = total_time * int(stren_per_hour[i])
         times.append(total_time)
-        real_strenuousness.append(strenuousness)
+        real_stren.append(stren)
         
-    total_strenuousness = sum(real_strenuousness)
-    return total_strenuousness, times, real_strenuousness
+    total_stren = sum(real_stren)
+    return total_stren, times, real_stren
 
-def find_fatigue_score(total_strenuousness, times, real_strenuousness):
+def find_fatigue_score(total_stren, times, real_stren):
     sleeps = []
     sleep_times = []
-    for i in range(len(real_strenuousness)):
-        if real_strenuousness[i] == 0:
+    for i in range(len(real_stren)):
+        if real_stren[i] == 0:
             sleeps.append(i)
             sleep_times.append(times[i])
 
@@ -32,7 +32,7 @@ def find_fatigue_score(total_strenuousness, times, real_strenuousness):
 
     return None
 
-total_strenuousness, times, real_strenuousness = find_total_strenuousness(["0:00", "6:00", "7:00", "7:30", "9:00", "10:00"], ["6:00", "7:00", "7:30", "9:00", "10:00", "12:00"], ["0", "1", "2", "1", "3", "0"])
-print(total_strenuousness, times, real_strenuousness)
-fatigue_score = find_fatigue_score(total_strenuousness, times, real_strenuousness)
+total_stren, times, real_stren = find_total_stren(["0:00", "6:00", "7:00", "7:30", "9:00", "10:00"], ["6:00", "7:00", "7:30", "9:00", "10:00", "12:00"], ["0", "1", "2", "1", "3", "0"])
+print(total_stren, times, real_stren)
+fatigue_score = find_fatigue_score(total_stren, times, real_stren)
 print(fatigue_score)
