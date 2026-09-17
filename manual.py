@@ -20,7 +20,13 @@ while True:
 
 total = sum(schedule.values())
 
+sleep = int(input("How many hours did you sleep last night? "))
+if sleep >= 7:
+    total -= 30
+elif sleep <= 7:
+    total += 15
+
 print("Schedule:", schedule) 
 print(f"Total strenuous score for the day: {total}")
-if total > 100:
-    print("Warning: Your strenuous score is above the recommended limit for the day. Please drink caffine")
+if total >= 100:
+    print("Warning: Your strenuous score is above the recommended limit for the day.\n Consier drinking caffine and taking regular breaks whenever possible")
