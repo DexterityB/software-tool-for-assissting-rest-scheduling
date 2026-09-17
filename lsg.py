@@ -31,17 +31,39 @@
 
 import os
 
+
+# error codes
+# 0: It worked
+# 1: File already exists
+# 2: File does not exist
+# 3: Non-File input invalid
+
+
 def init(name):
+    '''
+    Input name of file without .lsg
+    returns error code 
+    '''
     if os.path.isfile(name+".lsg"):
-        return "already exists"
+        return 1
     with open(name+".lsg", "wb") as f:
         f.write((0).to_bytes(1,byteorder='little',signed=False))
         f.write((3).to_bytes(2,byteorder='little',signed=False))
-    return("yay")
+    return(0)
 
 def add_day(name,date):
+    '''
+    Input file name without .lsg, and the date in [day_u8, month_u8, year_u16]
+    returns error code
+    '''
     if not os.path.isfile(name+".lsg"):
-        return "no file"
+        return 2
+    try:
+        date[0] += 0
+        date[1] += 0
+        date[2] += 0
+    except:
+        return 3 
     with open(name+".lsg","r+b") as f:
         days_saved = int.from_bytes(f.read(1),byteorder='little',signed=False)
         days_saved += 1
@@ -53,9 +75,30 @@ def add_day(name,date):
         f.write((date[1]).to_bytes(1,byteorder='little'))
         f.write((date[2]).to_bytes(2,byteorder='little'))
         f.write((0).to_bytes(1,byteorder='little'))
-    return "yay2"
+    return 0
 
 def add_activity(name,stren,start,end):
+    '''
+    Input file name without .lsg,
+        the strenuouse score of the activity i8,
+        the start time [hours_u8, minutes_u8],  
+        the end time [hours_u8, minutes_u8],
+    Returns error code 
+    '''
+    if not os.path.isfile(name+".lsg"):
+        return 2
+
+    if type(stren) is not int:
+        return 3
+    
+    try:
+        start[0] += 0
+        start[1] += 0
+        end[0] += 0
+        end[1] += 0
+    except:
+        return 3
+    
     with open(name+".lsg","r+b") as f:
         f.seek(1,0)
         current_day_start = int.from_bytes(f.read(2),byteorder='little')
@@ -73,10 +116,42 @@ def add_activity(name,stren,start,end):
         f.write(((start[1]).to_bytes(1,byteorder='little')))
         f.write(((end[0]).to_bytes(1,byteorder='little')))
         f.write(((end[1]).to_bytes(1,byteorder='little')))
-    return "yay3"
+    return 0
 
 
 def read_lsg(name):
+    '''
+    Input file name without .lsg
+    Returns all the file data or error:
+        [
+            days_saved,
+            [
+                [
+                    [
+                        d,
+                        m,
+                        y
+                    ],
+                    activites_count,
+                    [
+                        [
+                            stren,
+                            start_h,
+                            start_m,
+                            end_h,
+                            end_m
+                        ]
+                        ...
+                    ]
+                ]
+            ]
+            ...
+        ]
+    '''
+    
+    if not os.path.isfile(name+".lsg"):
+        return 2
+    
     with open(name+".lsg","rb") as f:
         days_saved = int.from_bytes(f.read(1),byteorder='little')
         f.seek(2,1)
