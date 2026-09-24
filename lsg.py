@@ -16,6 +16,7 @@
 # -activities:u8
 # -activity_table
 # --strenuousness:i8
+# --mental strain:i8
 # --start:time
 # --end:time
 # 
@@ -77,10 +78,11 @@ def add_day(name,date):
         f.write((0).to_bytes(1,byteorder='little'))
     return 0
 
-def add_activity(name,stren,start,end):
+def add_activity(name,stren,mental,start,end):
     '''
     Input file name without .lsg,
         the strenuouse score of the activity i8,
+        the mental strain of the activity i8,
         the start time [hours_u8, minutes_u8],  
         the end time [hours_u8, minutes_u8],
     Returns error code 
@@ -89,6 +91,9 @@ def add_activity(name,stren,start,end):
         return 2
 
     if type(stren) is not int:
+        return 3
+
+    if type(mental) is not int:
         return 3
     
     try:
@@ -112,6 +117,7 @@ def add_activity(name,stren,start,end):
         f.write((act_rec).to_bytes(1,byteorder='little'))
         f.seek(0,2)
         f.write(((stren).to_bytes(1,byteorder='little',signed=True)))
+        f.write(((mental).to_bytes(1,byteorder='little',signed=True)))
         f.write(((start[0]).to_bytes(1,byteorder='little')))
         f.write(((start[1]).to_bytes(1,byteorder='little')))
         f.write(((end[0]).to_bytes(1,byteorder='little')))
@@ -136,6 +142,7 @@ def read_lsg(name):
                     [
                         [
                             stren,
+                            mental,
                             start_h,
                             start_m,
                             end_h,
@@ -168,6 +175,7 @@ def read_lsg(name):
             
             for a in range(0,activities):
                 stren = int.from_bytes(f.read(1),byteorder='little',signed=True)
+                mental = int.from_bytes(f.read(1),byteorder='little',signed=True)
 
                 start_h = int.from_bytes(f.read(1),byteorder='little')
                 start_m = int.from_bytes(f.read(1),byteorder='little')
@@ -175,7 +183,7 @@ def read_lsg(name):
                 end_h = int.from_bytes(f.read(1),byteorder='little')
                 end_m = int.from_bytes(f.read(1),byteorder='little')
 
-                acts.append([stren,[start_h,start_m],[end_h,end_m]])
+                acts.append([stren,mental,[start_h,start_m],[end_h,end_m]])
             days.append([[day,month,year],activities,acts])
         return [days_saved,days]
 

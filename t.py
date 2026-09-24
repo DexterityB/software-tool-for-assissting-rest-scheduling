@@ -16,9 +16,10 @@ if i[0].lower() == "y":
 i = input("add activity?\n")
 if i[0].lower() == "y":
     s = int(input("stren: "))
+    m = int(input("mental: "))
     start = input("start time (hh/mm)").strip().split('/')
     end = input("end time (hh/mm)").strip().split('/')
 
-    lsg.add_activity(name, s, [int(start[0]),int(start[1])], [int(end[0]), int(end[1])])
+    lsg.add_activity(name, s, m, [int(start[0]),int(start[1])], [int(end[0]), int(end[1])])
 
 print(lsg.read_lsg(name))
