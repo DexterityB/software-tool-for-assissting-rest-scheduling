@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S.T.A.R.S.</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #e6edf3;
+
+            background: radial-gradient(
+                circle at top,
+                #102a43 0%,
+                #0b1c2d 40%,
+                #050b14 100%
+            );
+
+            transition: 0.4s ease-in-out;
+        }
+
+        .container {
+            width: min(95%, 1200px);
+            margin: auto;
+            padding: clamp(20px, 5vw, 60px);
+        }
+
+        .button {
+            background-color: rgba(15, 35, 60, 0.75);
+            color: white;
+            margin-bottom: 40px;
+            margin-right: 20px;
+            padding: 25px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 24px;
+
+            box-shadow: 0 0 20px rgba(27, 108, 255, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        a:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 0 30px rgba(27, 108, 255, 0.35);
+        }
+
+        section {
+            margin-bottom: 40px;
+            padding: 25px;
+            border-radius: 12px;
+
+            background: rgba(15, 35, 60, 0.75);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(6px);
+
+            box-shadow: 0 0 20px rgba(27, 108, 255, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        h1, h2, a {
+            font-family: "Courier New", monospace;
+            letter-spacing: 1px;
+        }
+
+        h1, a {
+            color: #ffffff;
+            border-left: 4px solid #fc3d21;
+            padding-left: 12px;
+            font-size: clamp(1.4rem, 4vw, 2.2rem);
+        }
+
+        h2 {
+            color: #fc3d21;
+            margin-top: 30px;
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+        }
+
+        p, li {
+            line-height: 1.6;
+            color: #e6edf3;
+            font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+        }
+
+        ul {
+            margin-left: 20px;
+        }
+
+        a {
+            color: #1b6cff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #60efff;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+            border-radius: 10px;
+            display: inline-block;
+        }
+
+        section:not(:first-child) {
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        @media (max-width: 600px) {
+            section {
+                padding: 18px;
+                margin-bottom: 25px;
+            }
+
+            ul {
+                margin-left: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <section>
+        <h1>Our Design</h1>
+
+    </section>
+
+    <section>
+        <h1>Software</h1>
+        <p>
+            The rover prototype uses python and arduino coding in order to translate a click from the user into movement from the arduino.
+        </p>
+        
+        <h2>Clicking</h2>
+        <p>
+            The first step of this process is taking the input from the user. Our design uses the python library tkinter, allowing for the display of a window that can take inputs.
+        </p>
+        <img src="images/click.png" alt="Click file screenshot">
+
+        <h2>Triangulating</h2>
+        <p>
+            Once the click from the user has been taken and translated into relative coordinates, they're sent through the triangulation software. This takes 
+            those relative coordinates and changes them into an angle and a distance.
+        </p>
+        <img src="images/triangulating.png" alt="Triangulation file screenshot">
+
+        <h2>Sending and Receiving the Data</h2>
+        <p>
+            Since the arduino is the thing that controls the servos and motors, next that data is sent to the arduino. The python Serial library is used to do this, and the arduino interprets the data.
+        </p>
+        <img src="images/sending_data.png" alt="Sending data file screenshot" width="694">
+        <img src="images/receiving_data.png" alt="Arduino file screenshot" width="449">
+    </section>
+
+    <section>
+        <h1>Electronics</h1>
+        <p>The rover prototype uses:</p>
+        <ul>
+            <li>Arduino-based control systems using:</li>
+            <ul>
+                <li>Servos for turning</li>
+                <li>DC motors for movement</li>
+            </ul>
+            <li>A raspberry pi that:</li>
+            <ul>
+                <li>Coordinates the movement of the rovers</li>
+                <li>Stores video data</li>
+            </ul>
+        </ul>
+
+    </section>
+
+    <section>
+        <h1>3D Model</h1>
+        <p>
+            Our design uses a rocker-bogie suspension system with a hollow body that we use to store the electronics.
+            The front has slots for the servos to go, which will also attach to the wheels, allowing them to turn.
+        </p>
+        <img src="images/solidworks_model.png" alt="SolidWorks rover model">
+
+        <p>
+            Here's what our 3D printed body looks like after being printed out without any electronics attached.
+        </p>
+        <img src="images/printed_model.png" alt="3D printed rover model">
+    </section>
+
+    <section>
+        <h1>Simulation</h1>
+        <p>
+            In order to test our rover design in a varied amount of environments we decided to use a simulation. This allows us to test without using 
+            unnecessary resources building difficult landscapes, and test things that wouldn't be feasible in a normal environment such as different gravities. 
+        </p>
+        <video width="380" height="300" controls=""> <source src="videos/sim_vid1.mp4"> </video>
+        
+        <p>
+            Rover was built from scratch in Webots simulation software to have an accurate rocker bogie suspension system that would function just like it would in real life.
+        </p>
+        <video width="380" height="300" controls=""> <source src="videos/sim_vid2.mp4"> </video>
+    </section>
+
+</div>
+
+</body>
+</html>
