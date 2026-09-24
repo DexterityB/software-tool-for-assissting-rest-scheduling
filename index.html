@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B.U.T.T.E.R. Website</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #e6edf3;
+
+            background: radial-gradient(
+                circle at top,
+                #102a43 0%,
+                #0b1c2d 40%,
+                #050b14 100%
+            );
+
+            transition: 0.4s ease-in-out;
+        }
+
+        .container {
+            width: min(95%, 1200px);
+            margin: auto;
+            padding: clamp(20px, 5vw, 60px);
+        }
+
+        .button {
+            background-color: rgba(15, 35, 60, 0.75);
+            color: white;
+            margin-bottom: 40px;
+            margin-right: 20px;
+            padding: 25px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 24px;
+
+            box-shadow: 0 0 20px rgba(27, 108, 255, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        a:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 0 30px rgba(27, 108, 255, 0.35);
+        }
+
+        section {
+            margin-bottom: 40px;
+            padding: 25px;
+            border-radius: 12px;
+
+            background: rgba(15, 35, 60, 0.75);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(6px);
+
+            box-shadow: 0 0 20px rgba(27, 108, 255, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        h1, h2, a {
+            font-family: "Courier New", monospace;
+            letter-spacing: 1px;
+        }
+
+        h1, a {
+            color: #ffffff;
+            border-left: 4px solid #fc3d21;
+            padding-left: 12px;
+            font-size: clamp(1.4rem, 4vw, 2.2rem);
+        }
+
+        h2 {
+            color: #fc3d21;
+            margin-top: 30px;
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+        }
+
+        p, li {
+            line-height: 1.6;
+            color: #e6edf3;
+            font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+        }
+
+        ul {
+            margin-left: 20px;
+        }
+
+        a {
+            color: #1b6cff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #60efff;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+            border-radius: 10px;
+        }
+
+        section:not(:first-child) {
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        @media (max-width: 600px) {
+            section {
+                padding: 18px;
+                margin-bottom: 25px;
+            }
+
+            ul {
+                margin-left: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <a class="button">Home</a>
+    <a href="design.html" class="button">Design</a>
+    <a href="next.html" class="button">Next Steps</a>
+    <a href="team.html" class="button">Team</a>
+
+    <section>
+        <h1>B.U.T.T.E.R - HERA Moonscape</h1>
+    </section>
+
+    <section>
+        <h1>Description</h1>
+        <p>
+            The HERA Moonscape Rover will be a set of four rovers designed to accomplish separate tasks.
+            One will hold cubes carrying ArduSat and CubeSat payloads. Another will pick up and move the
+            cubes using an arm. One will be a support robot designed to assist the other three rovers.
+            Finally, one will use Bluetooth and cameras to capture and log video surveillance.
+        </p>
+    </section>
+
+    <section>
+        <h1>Objectives</h1>
+        <ul>
+            <li>Make a rover that can operate on HERA missions</li>
+            <li>Controlled by Bluetooth</li>
+            <li>Multiple designs with different uses</li>
+
+            <li>Transportation
+                <ul>
+                    <li>Carries payload</li>
+                </ul>
+            </li>
+
+            <li>Manipulation
+                <ul>
+                    <li>Has an arm</li>
+                </ul>
+            </li>
+
+            <li>Support
+                <ul>
+                    <li>Assists other rovers</li>
+                </ul>
+            </li>
+
+            <li>Communications & Control
+                <ul>
+                    <li>Camera and Bluetooth to record and send videos</li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h1>Problem Statement</h1>
+        <p>
+            NASA requires four remotely operated specialized rovers capable of traversing Mars terrain.
+            Each rover fulfills a unique role including payload transport, object manipulation, video
+            recording, and mission support.
+        </p>
+
+        <h2>Criteria & Constraints</h2>
+        <ul>
+            <li>Base landscape design
+                <ul>
+                    <li>25% scaled model of 8 ft × 8 ft landscape</li>
+                    <li>Minimum 3 ft height of side walls</li>
+                    <li>Foldable design</li>
+                    <li>Easily assembled and disassembled</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h2>Specific Rovers</h2>
+        <ul>
+            <li>Transportation
+                <ul>
+                    <li>Carry a 10 cm<sup>3</sup> cube</li>
+                    <li>Support 0.5–1.0 lb</li>
+                </ul>
+            </li>
+
+            <li>Manipulation
+                <ul>
+                    <li>Lifting arm</li>
+                    <li>Precise movement</li>
+                    <li>Transfer payload cubes</li>
+                </ul>
+            </li>
+
+            <li>Support
+                <ul>
+                    <li>Assist other rovers</li>
+                    <li>Carry extra batteries</li>
+                    <li>Winch system</li>
+                </ul>
+            </li>
+
+            <li>Communications & Control
+                <ul>
+                    <li>Bluetooth compatible</li>
+                    <li>Video storage & transmission</li>
+                    <li>Mission monitoring</li>
+                    <li>Autonomous hive system</li>
+                </ul>
+            </li>
+
+            <li>Control System & Robotics
+                <ul>
+                    <li>Arduino-based</li>
+                    <li>Bluetooth-controlled</li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h1>User Personas</h1>
+        <p>
+            The robots require intuitive controls and adaptability due to communication delays.
+            They must execute instruction sets autonomously rather than step-by-step commands.
+        </p>
+        <p>
+            Designs must be collapsible and usable by operators wearing thick EVA gloves.
+        </p>
+    </section>
+
+</div>
+
+</body>
+</html>
