@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B.U.T.T.E.R. Website</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #e6edf3;
+
+            background: radial-gradient(
+                circle at top,
+                #102a43 0%,
+                #0b1c2d 40%,
+                #050b14 100%
+            );
+
+            transition: 0.4s ease-in-out;
+        }
+
+        .container {
+            width: min(95%, 1200px);
+            margin: auto;
+            padding: clamp(20px, 5vw, 60px);
+        }
+
+        .button {
+            background-color: rgba(15, 35, 60, 0.75);
+            color: white;
+            margin-bottom: 40px;
+            margin-right: 20px;
+            padding: 25px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 24px;
+
+            box-shadow: 0 0 20px rgba(27, 108, 255, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        a:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 0 30px rgba(27, 108, 255, 0.35);
+        }
+
+        section {
+            margin-bottom: 40px;
+            padding: 25px;
+            border-radius: 12px;
+
+            background: rgba(15, 35, 60, 0.75);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(6px);
+
+            box-shadow: 0 0 20px rgba(27, 108, 255, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        h1, h2, a {
+            font-family: "Courier New", monospace;
+            letter-spacing: 1px;
+        }
+
+        h1, a {
+            color: #ffffff;
+            border-left: 4px solid #fc3d21;
+            padding-left: 12px;
+            font-size: clamp(1.4rem, 4vw, 2.2rem);
+        }
+
+        h2 {
+            color: #fc3d21;
+            margin-top: 30px;
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+        }
+
+        p, li {
+            line-height: 1.6;
+            color: #e6edf3;
+            font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+        }
+
+        ul {
+            margin-left: 20px;
+        }
+
+        a {
+            color: #1b6cff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #60efff;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+            border-radius: 10px;
+        }
+
+        section:not(:first-child) {
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        @media (max-width: 600px) {
+            section {
+                padding: 18px;
+                margin-bottom: 25px;
+            }
+
+            ul {
+                margin-left: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <section>
+        <h1>S.T.A.R.S. - Lunar Sleep Shift Scheduling Tool</h1>
+    </section>
+
+    <section>
+        <h1>Problem Statement</h1>
+        <p>
+            NASA needs an autonomous sleep scheduler that’s able to schedule healthy sleep patterns for Astronauts in case of communication delays and other communication related problems.
+        </p>
+    </section>
+
+    <section>
+        <h1>Research</h1>
+        <ol>
+            <li>Physical Fatigue</li>
+            <ul>
+                <li>Insufficient sleep doesn’t allow for micro-damages to be repaired</li>
+                <li>Your cells aren’t able to produce enough energy</li>
+            </ul>
+            <li>Mental Fatigue</li>
+            <ul>
+                <li>Your brain doesn’t flush out toxic byproducts</li>
+                <li>Delayed reaction time and critical thinking, leading to tasks being more dangerous</li>
+                <li>7-9 hours of sleep is recommended, but might not work for astronauts</li>
+            </ul>
+        </ol>
+    </section>
+
+    <section>
+        <h1>Software</h1>
+        <ol>
+            <li>Advice Software</li>
+            <ul>
+                <li>Takes strenuousness scores and calculates fatigue score (Out of 100)</li>
+                <li>Takes the amount of sleep a user would get and their longest consecutive sleep and changes fatigue score</li>
+                <li>Gives advice based on fatigue score</li>
+            </ul>
+            <li>Storage Software</li>
+            <ul>
+                <li>The data of each persons schedule with strenuousness and mental strain score is stored in a seperate binary file marked “.lsg”. This file stores each day by the date and each activity by start time and end time. The file currently lacks mutability of already added data and specific querying of data.</li>
+            </ul>
+        </ol>
+    </section>
+
+    <section>
+        <h1>Next Steps</h1>
+        <ul>
+            <li>Fatigue Calculator</li>
+            <ul>
+                <li>GUI (Graphical User Interface)</li>
+                <ul>
+                    <li>Easy to use interface for astronauts to see how fatiguing a schedule is</li>
+                    <li>Combine storage and calculation programs into one area</li>
+                </ul>
+                <li>Update strenousness scores</li>
+                <ul>
+                    <li>Store previously inputted strenuousness scores</li>
+                    <li>More complex ranking system</li>
+                </ul>
+            <li>Storage Software</li>
+            <ul>
+                <li>Utilize GUI to view stored schedules</li>
+            </ul>
+        </ul>
+    </section>
+</div>
+</body>
+</html>
