@@ -130,133 +130,71 @@
 
 <div class="container">
 
-    <a class="button">Home</a>
-    <a href="design.html" class="button">Design</a>
-    <a href="next.html" class="button">Next Steps</a>
-    <a href="team.html" class="button">Team</a>
-
     <section>
-        <h1>B.U.T.T.E.R - HERA Moonscape</h1>
-    </section>
-
-    <section>
-        <h1>Description</h1>
-        <p>
-            The HERA Moonscape Rover will be a set of four rovers designed to accomplish separate tasks.
-            One will hold cubes carrying ArduSat and CubeSat payloads. Another will pick up and move the
-            cubes using an arm. One will be a support robot designed to assist the other three rovers.
-            Finally, one will use Bluetooth and cameras to capture and log video surveillance.
-        </p>
-    </section>
-
-    <section>
-        <h1>Objectives</h1>
-        <ul>
-            <li>Make a rover that can operate on HERA missions</li>
-            <li>Controlled by Bluetooth</li>
-            <li>Multiple designs with different uses</li>
-
-            <li>Transportation
-                <ul>
-                    <li>Carries payload</li>
-                </ul>
-            </li>
-
-            <li>Manipulation
-                <ul>
-                    <li>Has an arm</li>
-                </ul>
-            </li>
-
-            <li>Support
-                <ul>
-                    <li>Assists other rovers</li>
-                </ul>
-            </li>
-
-            <li>Communications & Control
-                <ul>
-                    <li>Camera and Bluetooth to record and send videos</li>
-                </ul>
-            </li>
-        </ul>
+        <h1>S.T.A.R.S. - Lunar Sleep Shift Scheduling Tool</h1>
     </section>
 
     <section>
         <h1>Problem Statement</h1>
         <p>
-            NASA requires four remotely operated specialized rovers capable of traversing Mars terrain.
-            Each rover fulfills a unique role including payload transport, object manipulation, video
-            recording, and mission support.
+            NASA needs an autonomous sleep scheduler that’s able to schedule healthy sleep patterns for Astronauts in case of communication delays and other communication related problems.
         </p>
-
-        <h2>Criteria & Constraints</h2>
-        <ul>
-            <li>Base landscape design
-                <ul>
-                    <li>25% scaled model of 8 ft × 8 ft landscape</li>
-                    <li>Minimum 3 ft height of side walls</li>
-                    <li>Foldable design</li>
-                    <li>Easily assembled and disassembled</li>
-                </ul>
-            </li>
-        </ul>
-
-        <h2>Specific Rovers</h2>
-        <ul>
-            <li>Transportation
-                <ul>
-                    <li>Carry a 10 cm<sup>3</sup> cube</li>
-                    <li>Support 0.5–1.0 lb</li>
-                </ul>
-            </li>
-
-            <li>Manipulation
-                <ul>
-                    <li>Lifting arm</li>
-                    <li>Precise movement</li>
-                    <li>Transfer payload cubes</li>
-                </ul>
-            </li>
-
-            <li>Support
-                <ul>
-                    <li>Assist other rovers</li>
-                    <li>Carry extra batteries</li>
-                    <li>Winch system</li>
-                </ul>
-            </li>
-
-            <li>Communications & Control
-                <ul>
-                    <li>Bluetooth compatible</li>
-                    <li>Video storage & transmission</li>
-                    <li>Mission monitoring</li>
-                    <li>Autonomous hive system</li>
-                </ul>
-            </li>
-
-            <li>Control System & Robotics
-                <ul>
-                    <li>Arduino-based</li>
-                    <li>Bluetooth-controlled</li>
-                </ul>
-            </li>
-        </ul>
     </section>
 
     <section>
-        <h1>User Personas</h1>
-        <p>
-            The robots require intuitive controls and adaptability due to communication delays.
-            They must execute instruction sets autonomously rather than step-by-step commands.
-        </p>
-        <p>
-            Designs must be collapsible and usable by operators wearing thick EVA gloves.
-        </p>
+        <h1>Research</h1>
+        <ol>
+            <li>Physical Fatigue</li>
+            <ul>
+                <li>Insufficient sleep doesn’t allow for micro-damages to be repaired</li>
+                <li>Your cells aren’t able to produce enough energy</li>
+            </ul>
+            <li>Mental Fatigue</li>
+            <ul>
+                <li>Your brain doesn’t flush out toxic byproducts</li>
+                <li>Delayed reaction time and critical thinking, leading to tasks being more dangerous</li>
+                <li>7-9 hours of sleep is recommended, but might not work for astronauts</li>
+            </ul>
+        </ol>
     </section>
 
-</div>
+    <section>
+        <h1>Software</h1>
+        <ol>
+            <li>Advice Software</li>
+            <ul>
+                <li>Takes strenuousness scores and calculates fatigue score (Out of 100)</li>
+                <li>Takes the amount of sleep a user would get and their longest consecutive sleep and changes fatigue score</li>
+                <li>Gives advice based on fatigue score</li>
+            </ul>
+            <li>Storage Software</li>
+            <ul>
+                <li>The data of each persons schedule with strenuousness and mental strain score is stored in a seperate binary file marked “.lsg”. This file stores each day by the date and each activity by start time and end time. The file currently lacks mutability of already added data and specific querying of data.</li>
+            </ul>
+        </ol>
+    </section>
 
+    <section>
+        <h1>Next Steps</h1>
+        <ul>
+            <li>Fatigue Calculator</li>
+            <ul>
+                <li>GUI (Graphical User Interface)</li>
+                <ul>
+                    <li>Easy to use interface for astronauts to see how fatiguing a schedule is</li>
+                    <li>Combine storage and calculation programs into one area</li>
+                </ul>
+                <li>Update strenousness scores</li>
+                <ul>
+                    <li>Store previously inputted strenuousness scores</li>
+                    <li>More complex ranking system</li>
+                </ul>
+            <li>Storage Software</li>
+            <ul>
+                <li>Utilize GUI to view stored schedules</li>
+            </ul>
+        </ul>
+    </section>
+</div>
 </body>
 </html>
