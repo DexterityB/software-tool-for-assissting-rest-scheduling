@@ -1,4 +1,4 @@
-# ASS
-#### Astronaut-sleep-scheduler
+# S.T.A.R.S.
+#### Software Tool for Assissting Rest Scheduling
 
-[Webbed Site](https://dexterityb.github.io/software-tool-for-assissting-rest-scheduling/)
+[For more information visit our website](https://dexterityb.github.io/software-tool-for-assissting-rest-scheduling/)
